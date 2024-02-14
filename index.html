@@ -11,34 +11,113 @@
 </head>
 
 <body>
-    <div class="flex-dashboard">
-        <sidebar>
-            <div class="sidebar-title">
-                <img src="images/graph.png" alt="">
-                <h2>Dashboard</h2>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="0">Dashboard 1</a></li>
-                    <li><a href="0">Dashboard 2</a></li>
-                    <li><a href="0">Dashboard 3</a></li>
-                </ul>
-            </div>
-        </sidebar>
-        <main>
-            <header>
-                <a href="0"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
-                <div class="user-logout">
-                    <p>Joice Fogaça</p>
-                    <a href="0"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    <!-- Menu lateral-->
+    <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h6>Joice Fogaça</h6>
+            <!-- <a class="navbar-brand" href="#">Joice Fogaça</a> -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-
-            </header>
-            <div class="main-content">
-                <p>main-content</p>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-        </main>
+        </div>
+    </nav>
+    <!-- Menu lateral-->
+    <div class="container text-center m-5 p-5">
+        <!-- Gráfico -->
+        <div class="row">
+            <div class="col">
+                <canvas id="inadimplenciaChart">
+            </div>
+            <div class="col">
+                <canvas id="receitaChart">
+            </div>
+        </div>
+        <!-- Fim Gráfico -->
+        <!-- Cards Indicadores-->
+        <div class="card-group">
+
+            <div class="card " style="width: 15rem;">
+                <div class="card-body h-100">
+                    <h5 class="card-title">Notas Emitidas</h5>
+                    <h6 class="card-title mb-2 text-body-secondary">R$ 8778,90</h6>
+                </div>
+            </div>
+
+
+            <div class="card h-100" style="width: 15rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Notas Emitidas</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Sem cobrança</h6>
+                    <h6 class="card-title mb-2 text-body-secondary">R$ 8778,90</h6>
+                </div>
+            </div>
+
+
+            <div class="card h-100" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Notas Vencidas</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Inadimplência</h6>
+                    <h6 class="card-title mb-2 text-body-secondary">R$ 778,90</h6>
+                </div>
+            </div>
+
+
+            <div class="card " style="width: 18rem;">
+                <div class="card-body h-100">
+                    <h5 class="card-title">Total Notas Emitidas</h5>
+                    <h6 class="card-title mb-2 text-body-secondary">R$ 8778,90</h6>
+                </div>
+            </div>
+
+
+            <div class="card" style="width: 15rem;">
+                <div class="card-body h-100">
+                    <h5 class="card-title">Total Notas Emitidas</h5>
+                    <h6 class="card-title mb-2 text-body-secondary">R$ 8778,90</h6>
+                </div>
+            </div>
+
+        </div>
     </div>
+    </div>
+    <script type="text/javascript" src="plugin/chartJs/node_modules/chart.js/dist/chart.umd.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
     <script src="plugin/bootstrap-5.3.2/js/bootstrap.min.js"></script>
     <script src="plugin/fontawesome-free-6.5.1/js/all.min.js"></script>
 </body>
