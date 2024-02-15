@@ -1,8 +1,11 @@
 function atualizarPeriodo() {
     var dropdown1 = document.getElementById("typeInterval");
     var dropdown2 = document.getElementById("periodo");
-
+    var btn = document.getElementById("btn-processar");
+    
     dropdown2.innerHTML = "<option value=''>Escolha um período ...</option>";
+    btn.disabled = true;
+    btn.classList.add("btn-secondary");
 
     // Determinar as opções a serem adicionadas com base na seleção no dropdown1
     if (dropdown1.value === "1") {
