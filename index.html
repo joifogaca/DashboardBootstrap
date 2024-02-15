@@ -58,28 +58,51 @@
         </div>
     </nav>
     <!-- Menu lateral-->
-    <div class="container text-center m-5 p-5">
+    <div class="container text-center p-5">
         <!-- Gráfico -->
-        <div class="row">
-            <div class="col">
+        <div class="row  justify-content-between m-3">
+            <div class="col-md-5">
                 <canvas id="inadimplenciaChart">
             </div>
-            <div class="col">
+            <div class="col-md-5">
                 <canvas id="receitaChart">
             </div>
         </div>
         <!-- Fim Gráfico -->
-        <!-- Cards Indicadores-->
-        <div class="card-group">
+        <!-- Filtros Indicadores -->
+        <div class="container mt-4 ">
+            <div class="row ">
+                <div class="col-md-3">
+                    Resumo dos indicadores:
+                </div>
+                <div class="col-md-3">
+                    <select id="typeInterval" class="form-select">
+                        <option selected>Escolha o intervalo ...</option>
+                        <option value="1">Mês</option>
+                        <option value="2">Trimestre</option>
+                        <option value="3">Anual</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select id="inputInterval" class="form-select" disabled>
+                        <option selected>Escolha o periodo ...</option>
+                    </select>
+                </div>
+                <div class="col-md-2 ms-auto">
+                    <button type="button" class="btn btn-secondary" disabled>Processar</button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Filtros Indicadores -->
+        <!-- Cards Indicadores-->
+        <div class="card-group mt-3">
             <div class="card " style="width: 15rem;">
                 <div class="card-body h-100">
                     <h5 class="card-title">Notas Emitidas</h5>
                     <h6 class="card-title mb-2 text-body-secondary">R$ 8778,90</h6>
                 </div>
             </div>
-
-
             <div class="card h-100" style="width: 15rem;">
                 <div class="card-body">
                     <h5 class="card-title">Notas Emitidas</h5>
@@ -87,8 +110,6 @@
                     <h6 class="card-title mb-2 text-body-secondary">R$ 8778,90</h6>
                 </div>
             </div>
-
-
             <div class="card h-100" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Notas Vencidas</h5>
@@ -96,23 +117,37 @@
                     <h6 class="card-title mb-2 text-body-secondary">R$ 778,90</h6>
                 </div>
             </div>
-
-
             <div class="card " style="width: 18rem;">
                 <div class="card-body h-100">
-                    <h5 class="card-title">Total Notas Emitidas</h5>
-                    <h6 class="card-title mb-2 text-body-secondary">R$ 8778,90</h6>
+                    <h5 class="card-title">Notas à vencer</h5>
+                    <h6 class="card-title mb-2 text-body-secondary">R$ 108,90</h6>
                 </div>
             </div>
-
-
             <div class="card" style="width: 15rem;">
                 <div class="card-body h-100">
-                    <h5 class="card-title">Total Notas Emitidas</h5>
+                    <h5 class="card-title">Notas Pagas</h5>
                     <h6 class="card-title mb-2 text-body-secondary">R$ 8778,90</h6>
                 </div>
             </div>
-
+        </div>
+        <!-- Fim Cards Indicadores-->
+        <!-- Tabela -->
+        <div class="table-responsive mt-3">
+            <table class="table table-bordered border-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Pagador</th>
+                        <th scope="col">Identificação da nota</th>
+                        <th scope="col">Dt Emissão nota</th>
+                        <th scope="col">Dt cobrança</th>
+                        <th scope="col">Dt pagamento</th>
+                        <th scope="col">Valor Nota</th>
+                        <th scope="col">Nota Fiscal</th>
+                        <th scope="col">Boleto</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
     </div>

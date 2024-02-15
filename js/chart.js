@@ -15,11 +15,11 @@ const dataInadimplencia = [
     { mes: "Dezembro", valor: 100 }
 ]
 new Chart(ctxInadimplencia, {
-  type: 'bar',
+  type: 'line',
   data: {
     labels: dataInadimplencia.map(row => row.mes),
     datasets: [{
-      label: 'Gráfico de Inadimplência',
+      label: 'Inadimplência',
       data: dataInadimplencia.map(row => row.valor),
       borderWidth: 1
     }]
@@ -50,11 +50,11 @@ const dataReceita = [
     { mes: "Dezembro", valor: 100 }
 ]
 new Chart(ctxReceita, {
-  type: 'bar',
+  type: 'line',
   data: {
     labels: dataReceita.map(row => row.mes),
     datasets: [{
-      label: 'Gráfico de Inadimplência',
+      label: 'Receita Recebida',
       data: dataReceita.map(row => row.valor),
       borderWidth: 1
     }]
