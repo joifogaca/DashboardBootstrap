@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="plugin/bootstrap-5.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugin/fontawesome-free-6.5.1/css/all.min.css">
+    <script src="plugin/jquery/node_modules/jquery/dist/jquery.min.js"></script>
     <title>Dashboard usando Bootstrap 5</title>
 </head>
 
@@ -18,12 +19,13 @@
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <p class="fw-bold">Dashboard - Financeiro</p>
             <h6>Joice Fogaça</h6>
             <!-- <a class="navbar-brand" href="#">Joice Fogaça</a> -->
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -34,31 +36,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
                     </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </div>
     </nav>
     <!-- Menu lateral-->
-    <div class="container p-5 ">
+    <div class="container p-5  ">
         <!-- Gráfico -->
         <div class="row  justify-content-center mt-3 gap-2">
             <div class="col-md-4 border border-secondary-subtle ">
@@ -124,35 +108,23 @@
         <div class="container text-bg-light border border-secondary-subtle">
             <div class="row justify-content-end m-2">
                 <div class="col-auto mt-1">
-                    <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
+                    <select id="mesEmissao" class="form-select" onchange="atualizarPeriodo()">
                         <option selected>Mês emissão ...</option>
-                        <option value="1">Mês</option>
-                        <option value="2">Trimestre</option>
-                        <option value="3">Anual</option>
                     </select>
                 </div>
                 <div class="col-auto mt-1">
-                    <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
+                    <select id="mesCobranca" class="form-select" onchange="atualizarPeriodo()">
                         <option selected>Mês cobrança ...</option>
-                        <option value="1">Mês</option>
-                        <option value="2">Trimestre</option>
-                        <option value="3">Anual</option>
                     </select>
                 </div>
                 <div class="col-auto mt-1">
-                    <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
+                    <select id="mesPagamento" class="form-select" onchange="atualizarPeriodo()">
                         <option selected>Mês pagamento ...</option>
-                        <option value="1">Mês</option>
-                        <option value="2">Trimestre</option>
-                        <option value="3">Anual</option>
                     </select>
                 </div>
                 <div class="col-auto mt-1">
-                    <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
+                    <select id="statusNota" class="form-select" onchange="atualizarPeriodo()">
                         <option selected>Status nota...</option>
-                        <option value="1">Mês</option>
-                        <option value="2">Trimestre</option>
-                        <option value="3">Anual</option>
                     </select>
                 </div>
                 <div class="col-auto mt-1">
@@ -160,7 +132,7 @@
                 </div>
             </div>
             <div class="table-responsive mt-3">
-                <table class="table table-bordered border-secondary-subtle">
+                <table id="tabelaNotas" class="table table-bordered border-secondary-subtle">
                     <thead>
                         <tr>
                             <th scope="col">Pagador</th>
@@ -247,7 +219,8 @@
     </div>
     <script type="text/javascript" src="plugin/chartJs/node_modules/chart.js/dist/chart.umd.js"></script>
     <script type="text/javascript" src="js/chart.js"></script>
-    <script type="text/javascript" src="js/selects.js"></script>
+    <script type="text/javascript" src="js/selectsIndicadores.js"></script>
+    <script type="text/javascript" src="js/tableFilters.js"></script>
     <script src="plugin/bootstrap-5.3.2/js/bootstrap.min.js"></script>
     <script src="plugin/fontawesome-free-6.5.1/js/all.min.js"></script>
 </body>
