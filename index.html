@@ -70,7 +70,7 @@
         </div>
         <!-- Fim Gráfico -->
         <!-- Filtros Indicadores -->
-        <div class="container text-bg-light mt-4 mb-2 border border-secondary-subtl">
+        <div class="container text-bg-light mt-4 mb-2 border border-secondary-subtle">
             <div class="row m-2">
                 <div class="col-auto me-auto pt-2">
                     <p>Resumo dos indicadores:</p>
@@ -120,88 +120,125 @@
         <!-- Filtros Tabelas -->
 
         <!-- Fim Tabelas -->
-        <!-- Tabela -->
-        <div class="table-responsive mt-3">
-            <table class="table table-bordered border-secondary-subtle">
-                <thead>
-                    <tr>
-                        <th scope="col">Pagador</th>
-                        <th scope="col">Identificação da nota</th>
-                        <th scope="col">Dt Emissão nota</th>
-                        <th scope="col">Dt cobrança</th>
-                        <th scope="col">Dt pagamento</th>
-                        <th scope="col">Valor Nota</th>
-                        <th scope="col">Nota Fiscal</th>
-                        <th scope="col">Boleto</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Felipe Felix</td>
-                        <td>333.090.08</td>
-                        <td>15/09/2010</td>
-                        <td>25/09/2010</td>
-                        <td>21/09/2010</td>
-                        <td>R$ 20,75</td>
-                        <td><i class="fa-solid fa-file-pdf"></i></td>
-                        <td><i class="fa-solid fa-file-pdf"></i></td>
-                        <td><span class="badge text-bg-success">Pagamento Realizado</span></td>
-                    </tr>
-                    <tr>
-                        <td>Flávio Dino</td>
-                        <td>533.070.08</td>
-                        <td>20/09/2010</td>
-                        <td>28/09/2010</td>
-                        <td> </td>
-                        <td>R$ 120,75</td>
-                        <td><i class="fa-solid fa-file-pdf"></i></td>
-                        <td><i class="fa-solid fa-file-pdf"></i></td>
-                        <td><span class="badge text-bg-warning">Pagamento em atraso</span></td>
-                    </tr>
-                    <tr>
-                        <td>Carlos Fernandez</td>
-                        <td>533.850.08</td>
-                        <td>19/09/2010</td>
-                        <td>28/09/2010</td>
-                        <td> </td>
-                        <td>R$ 150,75</td>
-                        <td><i class="fa-solid fa-file-pdf"></i></td>
-                        <td><i class="fa-solid fa-file-pdf"></i></td>
-                        <td><span class="badge text-bg-info">Cobrança realizada</span></td>
-                    </tr>
-                    <tr>
-                        <td>Aline Mendes</td>
-                        <td>533.980.08</td>
-                        <td>19/09/2010</td>
-                        <td>28/09/2010</td>
-                        <td> </td>
-                        <td>R$ 150,75</td>
-                        <td><i class="fa-solid fa-file-pdf"></i></td>
-                        <td><i class="fa-solid fa-file-pdf"></i></td>
-                        <td><span class="badge text-bg-info">Emitida</span></td>
-                    </tr>
-                </tbody>
-            </table>
-            <!--Paginação-->
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!--fim Paginação-->
+        <!-- Tabela e filtros -->
+        <div class="container text-bg-light border border-secondary-subtle">
+            <div class="row m-2">
+                <div class="col-md-3 mt-1">
+                    <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
+                        <option selected>Mês emissão ...</option>
+                        <option value="1">Mês</option>
+                        <option value="2">Trimestre</option>
+                        <option value="3">Anual</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
+                        <option selected>Mês cobrança ...</option>
+                        <option value="1">Mês</option>
+                        <option value="2">Trimestre</option>
+                        <option value="3">Anual</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
+                        <option selected>Mês pagamento ...</option>
+                        <option value="1">Mês</option>
+                        <option value="2">Trimestre</option>
+                        <option value="3">Anual</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
+                        <option selected>Status nota...</option>
+                        <option value="1">Mês</option>
+                        <option value="2">Trimestre</option>
+                        <option value="3">Anual</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered border-secondary-subtle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Pagador</th>
+                            <th scope="col">Identificação da nota</th>
+                            <th scope="col">Dt Emissão nota</th>
+                            <th scope="col">Dt cobrança</th>
+                            <th scope="col">Dt pagamento</th>
+                            <th scope="col">Valor Nota</th>
+                            <th scope="col">Nota Fiscal</th>
+                            <th scope="col">Boleto</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Felipe Felix</td>
+                            <td>333.090.08</td>
+                            <td>15/09/2010</td>
+                            <td>25/09/2010</td>
+                            <td>21/09/2010</td>
+                            <td>R$ 20,75</td>
+                            <td><i class="fa-solid fa-file-pdf"></i></td>
+                            <td><i class="fa-solid fa-file-pdf"></i></td>
+                            <td><span class="badge text-bg-success">Pagamento Realizado</span></td>
+                        </tr>
+                        <tr>
+                            <td>Flávio Dino</td>
+                            <td>533.070.08</td>
+                            <td>20/09/2010</td>
+                            <td>28/09/2010</td>
+                            <td> </td>
+                            <td>R$ 120,75</td>
+                            <td><i class="fa-solid fa-file-pdf"></i></td>
+                            <td><i class="fa-solid fa-file-pdf"></i></td>
+                            <td><span class="badge text-bg-warning">Pagamento em atraso</span></td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Fernandez</td>
+                            <td>533.850.08</td>
+                            <td>19/09/2010</td>
+                            <td>28/09/2010</td>
+                            <td> </td>
+                            <td>R$ 150,75</td>
+                            <td><i class="fa-solid fa-file-pdf"></i></td>
+                            <td><i class="fa-solid fa-file-pdf"></i></td>
+                            <td><span class="badge text-bg-info">Cobrança realizada</span></td>
+                        </tr>
+                        <tr>
+                            <td>Aline Mendes</td>
+                            <td>533.980.08</td>
+                            <td>19/09/2010</td>
+                            <td>28/09/2010</td>
+                            <td> </td>
+                            <td>R$ 150,75</td>
+                            <td><i class="fa-solid fa-file-pdf"></i></td>
+                            <td><i class="fa-solid fa-file-pdf"></i></td>
+                            <td><span class="badge text-bg-info">Emitida</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--Paginação-->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--fim Paginação-->
+
+            </div>
         </div>
     </div>
     </div>
