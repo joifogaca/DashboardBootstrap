@@ -122,8 +122,8 @@
         <!-- Fim Tabelas -->
         <!-- Tabela e filtros -->
         <div class="container text-bg-light border border-secondary-subtle">
-            <div class="row m-2">
-                <div class="col-md-3 mt-1">
+            <div class="row justify-content-end m-2">
+                <div class="col-auto mt-1">
                     <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
                         <option selected>Mês emissão ...</option>
                         <option value="1">Mês</option>
@@ -131,7 +131,7 @@
                         <option value="3">Anual</option>
                     </select>
                 </div>
-                <div class="col-md-3 mt-1">
+                <div class="col-auto mt-1">
                     <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
                         <option selected>Mês cobrança ...</option>
                         <option value="1">Mês</option>
@@ -139,7 +139,7 @@
                         <option value="3">Anual</option>
                     </select>
                 </div>
-                <div class="col-md-3 mt-1">
+                <div class="col-auto mt-1">
                     <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
                         <option selected>Mês pagamento ...</option>
                         <option value="1">Mês</option>
@@ -147,13 +147,16 @@
                         <option value="3">Anual</option>
                     </select>
                 </div>
-                <div class="col-md-3 mt-1">
+                <div class="col-auto mt-1">
                     <select id="typeInterval" class="form-select" onchange="atualizarPeriodo()">
                         <option selected>Status nota...</option>
                         <option value="1">Mês</option>
                         <option value="2">Trimestre</option>
                         <option value="3">Anual</option>
                     </select>
+                </div>
+                <div class="col-auto mt-1">
+                    <button type="button" class="btn btn-primary">Limpar filtros</button>
                 </div>
             </div>
             <div class="table-responsive mt-3">
