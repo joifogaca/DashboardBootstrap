@@ -171,8 +171,7 @@ function MudancaFiltrosTabela(){
         var mesCobranca = $('#mesCobranca').val();
         var mesPagamento = $('#mesPagamento').val();
         var statusNota = $('#statusNota').val();
-        console.log(statusNota);
-
+        
         var dadosFiltradosEmissao = [];
         if(mesEmissao != 'todos'){
             dadosFiltradosEmissao = filtrarPorMesEmissao(dadosApi, mesEmissao);
@@ -218,9 +217,9 @@ function CarregarDadosNaTabela(dados){
         var tr = $('<tr>').appendTo(tbody);
         $('<td>').text(item.nomePagador).appendTo(tr);
         $('<td>').text(item.identificacaoNota).appendTo(tr);
-        $('<td>').text(formatarData(item.dtEmissaoNota)).appendTo(tr);
-        $('<td>').text(formatarData(item.dtCobranca)).appendTo(tr);
-        $('<td>').text(formatarData(item.dtPagamento)).appendTo(tr);
+        $('<td>').text(formatarDataParaTabela(item.dtEmissaoNota)).appendTo(tr);
+        $('<td>').text(formatarDataParaTabela(item.dtCobranca)).appendTo(tr);
+        $('<td>').text(formatarDataParaTabela(item.dtPagamento)).appendTo(tr);
         $('<td>').text(item.valorNota.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })).appendTo(tr);
         var iconeHTML = $('<i>').addClass('fa-solid fa-file-pdf');
         var iconeHTML2 = $('<i>').addClass('fa-solid fa-file-pdf');
@@ -263,52 +262,27 @@ function CarregaSelectsdaTabela(){
         $('#statusNota').append('<option value="' + statusNota[i] + '">' + statusNota[i] + '</option>');
     }}
 
-function stringParaData(dataString) {
-    // Dividir a string da data em dia, mês e ano
-    var partes = dataString.split('/');
-    
-    // Verificar se a string da data tem três partes
-    if (partes.length === 3) {
-        // Extrair o dia, mês e ano da string
-        var dia = parseInt(partes[0]);
-        var mes = parseInt(partes[1]) - 1; // Meses são baseados em zero, então subtrai-se 1
-        var ano = parseInt(partes[2]);
-        
-        // Verificar se os componentes da data são válidos
-        if (!isNaN(dia) && !isNaN(mes) && !isNaN(ano)) {
-            // Criar um novo objeto Date com os componentes extraídos
-            return new Date(ano, mes, dia);
-        }
-    }
-    
-    // Se a string da data não estiver no formato esperado ou se os componentes forem inválidos, retorna null
-    return null;
-}
-
-function stringParaData1(dataString) {
-    // Dividir a string da data em dia, mês e ano
+function stringAPIParaData(dataString) {
+   
     var partes = dataString.split('-');
     
-    // Verificar se a string da data tem três partes
     if (partes.length === 3) {
-        // Extrair o dia, mês e ano da string
+        
         var ano = parseInt(partes[0]);
-        var mes = parseInt(partes[1]); // Meses são baseados em zero, então subtrai-se 1
+        var mes = parseInt(partes[1]); 
         var dia = parseInt(partes[2]);
         
-        // Verificar se os componentes da data são válidos
+       
         if (!isNaN(dia) && !isNaN(mes) && !isNaN(ano)) {
-            // Criar um novo objeto Date com os componentes extraídos
             return new Date(ano, mes, dia);
         }
     }
     
-    // Se a string da data não estiver no formato esperado ou se os componentes forem inválidos, retorna null
     return null;
 }
 
 
-function formatarData(dado) {
+function formatarDataParaTabela(dado) {
     if (!dado || dado == "") return "";
 
     let partes = dado.split('-');
@@ -320,15 +294,15 @@ function formatarData(dado) {
 }
 
 function filtrarPorMesEmissao(dados, mesEmissao) {
-    return dados.filter(item => stringParaData1(item.dtEmissaoNota).getMonth() == mesEmissao);
+    return dados.filter(item => stringAPIParaData(item.dtEmissaoNota).getMonth() == mesEmissao);
     }
 
 function filtrarPorMesCobranca(dados, mesCobranca) {
-        return dados.filter(item => stringParaData1(item.dtCobranca).getMonth() == mesCobranca);
+        return dados.filter(item => stringAPIParaData(item.dtCobranca).getMonth() == mesCobranca);
         }
 
 function filtrarPorMesPagamento(dados, mesPagamento) {
-            return dados.filter(item => stringParaData1(item.dtPagamento).getMonth() == mesPagamento);
+            return dados.filter(item => stringAPIParaData(item.dtPagamento).getMonth() == mesPagamento);
             }
 
 function filtrarPorStatus(dados, status) {
