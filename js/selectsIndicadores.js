@@ -1,3 +1,16 @@
+$(document).ready(function() {
+
+
+  $('#typeInterval').change(function() {
+    atualizarPeriodo();
+  });
+
+  $('#periodo').change(function() {
+    habilitarProcessar();
+  });
+
+});
+
 function atualizarPeriodo() {
     var dropdown1 = document.getElementById("typeInterval");
     var dropdown2 = document.getElementById("periodo");

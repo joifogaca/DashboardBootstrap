@@ -157,6 +157,11 @@ $(document).ready(function() {
         MudancaFiltrosTabela();
     });
 
+    $('#btnLimparFiltrosTabela').click(function() {
+        CarregarDadosNaTabela(dadosApi);
+        $(".selecaoPadraoFiltroTabela").val("todos");
+    });
+
 });
 
 
