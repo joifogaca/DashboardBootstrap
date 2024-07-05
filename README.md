@@ -1,5 +1,9 @@
 # Projeto Dashboard Bootstrap 
 
+Desafio de recebido para montar uma tela conforme os requisitos do documento do link:
+
+https://drive.google.com/file/d/1jhL5AO4aqPD1wjXARfBDOxZpejT4mMsF/view?usp=sharing
+
 O objetivo é simular um dashboard que funcione dinamicamente com os dados que recebera da API.
 
 ## Futuras melhorias
